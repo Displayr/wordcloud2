@@ -127,7 +127,7 @@ function maskInit(el,x){
                   minRotation: x.minRotation,
                   maxRotation: x.maxRotation,
                   shuffle: x.shuffle,
-                  shape: x.shape,
+                  // shape: x.shape,
                   rotateRatio: x.rotateRatio,
                   ellipticity: x.ellipticity,
                   clearCanvas: false,
