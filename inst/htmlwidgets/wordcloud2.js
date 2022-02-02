@@ -17,7 +17,7 @@ HTMLWidgets.widget({
   renderValue: function(el, x, instance) {
     const canvas = el.children[0];
     const context = canvas.getContext('2d');
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, el.scrollWidth, el.scrollHeight);
 
     // parse gexf data
     listData=[];
