@@ -15,6 +15,10 @@ HTMLWidgets.widget({
     return(el.firstChild);
   },
   renderValue: function(el, x, instance) {
+    const canvas = el.children[0];
+    const context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
     // parse gexf data
     listData=[];
     if (typeof(x.word) === 'string') {
