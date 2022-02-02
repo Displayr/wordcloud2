@@ -27,7 +27,6 @@ HTMLWidgets.widget({
 
     if (x.figBase64) {
       maskInit(el,x);
-      console.log(3)
     } else {
       WordCloud(el.firstChild, {
         list: listData,
