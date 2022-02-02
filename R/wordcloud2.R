@@ -114,7 +114,7 @@ wordcloud2 <- function(data,
     }
 
     if(!file.exists(figPath)){
-      response = try(GET(figPath), silent = TRUE)
+      response = GET(figPath)
       base64 = base64enc::base64encode(response$content)
     } else {
 
