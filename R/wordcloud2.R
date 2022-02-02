@@ -104,20 +104,20 @@ wordcloud2 <- function(data,
     names(dataOut) = c("name", "freq")
   }
 
-
-
   if(!is.null(figPath)){
+    spPath = strsplit(figPath, "\\.")[[1]]
+    len = length(spPath)
+    figClass = spPath[len]
+
+    if(!figClass %in% c("jpeg","jpg","png","bmp","gif")){
+      stop("file should be a jpeg, jpg, png, bmp or gif file!")
+    }
+
     if(!file.exists(figPath)){
       response = try(GET(figPath), silent = TRUE)
       base64 = base64enc::base64encode(response$content)
     } else {
-      spPath = strsplit(figPath, "\\.")[[1]]
-      len = length(spPath)
-      figClass = spPath[len]
 
-      if(!figClass %in% c("jpeg","jpg","png","bmp","gif")){
-        stop("file should be a jpeg, jpg, png, bmp or gif file!")
-      }
       base64 = base64enc::base64encode(figPath)
     }
     base64 = paste0("data:image/",figClass ,";base64,",base64)
