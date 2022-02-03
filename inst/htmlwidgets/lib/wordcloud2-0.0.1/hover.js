@@ -14,6 +14,9 @@ function newlabel(el){
 // hover function
 function cv_handleHover(item, dimension, evt) {
   var path = evt.path || (evt.composedPath && evt.composedPath());
+  if (path == null) { // IE and pre-chrome Edge does not support composedPath
+    return;
+  }
   var id = path[1].id
   var el = document.getElementById(id + "wcLabel");
   var target = evt.target || evt.srcElement;
@@ -40,7 +43,7 @@ function cv_handleHover(item, dimension, evt) {
 
 //mask function
 function maskInit(el,x){
-  function imageLoadHandler() {
+  function handleImageLoad() {
     vvalue = 128
     var maskCanvas = document.createElement('canvas');
     maskCanvas.width = this.width;
@@ -133,11 +136,11 @@ function maskInit(el,x){
                     abortThreshold: 3000
                     });
   }
-  
+
   str = x.figBase64;
   var newImg = new Image();
 
-  newImg.onload = imageLoadHandler
+  newImg.onload = handleImageLoad
 
   newImg.src = str;
   newImg.style.position = 'absolute';
