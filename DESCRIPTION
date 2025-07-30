@@ -12,6 +12,7 @@ LazyData: TRUE
 VignetteBuilder: knitr
 Imports:
     htmlwidgets,
+    httr,
     base64enc,
     grDevices,
     graphics,
